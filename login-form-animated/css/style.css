@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --setBg: #2c2c2c;
+    --gradien: linear-gradient(45deg, rgb(60, 57, 226),red,purple, yellow, rgb(94, 231, 106));
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--setBg);
+}
+
+.box{
+    position: relative;
+    width: 460px;
+    height: 520px;
+    background: var(--setBg);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.box::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 460px;
+    height: 520px;
+    background: linear-gradient(0deg,transparent,transparent, #99ff25,#25ffab,#ffcf25);
+    z-index: 1;
+    animation: animate 8s linear infinite;
+    transform-origin: bottom right;
+}
+
+.box::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 460px;
+    height: 520px;
+    background: linear-gradient(0deg,transparent,transparent, #7543fd,#d843fd,#fd4370);
+    z-index: 1;
+    animation: animate 8s linear infinite;
+    animation-delay: -4s;
+    transform-origin: bottom right;
+}
+
+.borderLine{
+    position: absolute;
+    top: 0;
+    inset: 0;
+}
+
+.borderLine::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 460px;
+    height: 520px;
+    background: linear-gradient(0deg,transparent,transparent, #ed45c3,#ed455b,#16ee33);
+    z-index: 1;
+    animation: animate 8s linear infinite;
+    animation-delay: -2s;
+    transform-origin: bottom right;
+}
+
+.borderLine::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 460px;
+    height: 520px;
+    background: linear-gradient(0deg,transparent,transparent, #67ebd2,#51ca6b,#c2ca51);
+    z-index: 1;
+    animation: animate 8s linear infinite;
+    animation-delay: -6s;
+    transform-origin: bottom right;
+}
+
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.box form{
+    position: absolute;
+    inset: 4px;
+    background: var(--setBg);
+    padding: 50px 40px;
+    border-radius: 10px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.box form h1{
+    color: aliceblue;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.box form .inputBox{
+    position: relative;
+    margin-top: 30px;
+}
+
+.box form .inputBox input{
+    position: relative;
+    width: 100%;
+    padding: 25px 10px 10px;
+    background: transparent;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    color: aliceblue;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    z-index: 5;
+}
+
+.box form .inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 20px 5px 10px;
+    pointer-events: none;
+    color: #8f8f8f;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+}
+
+.box form .inputBox input:focus ~ span{
+    color: aliceblue;
+    font-size: 0.75em;
+    transform: translateY(-25px);
+}
+
+.box form .inputBox i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.box form .inputBox input:focus ~ i{
+    height: 44px;
+    background-color: aliceblue;
+}
+
+.box form .links{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box form .links a{
+    margin: 10px 0;
+    font-size: 0.75em;
+    color: #8f8f8f;
+    text-decoration: none;
+}
+
+.box form .links a:hover, .box form .links a:nth-child(2){
+    color: aliceblue;
+}
+
+.box form input[type="submit"]{
+    border: none;
+    outline: none;
+    padding: 9px 25px;
+    background: aliceblue;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 5px;
+    font-weight: 500;
+    width: 100px;
+    margin-top: 10px;
+}
+
+.box form input[type="submit"]:active{
+    opacity: 0.7;
+}
+
+@media only screen and (max-width: 780px) {
+    .box{
+        width: 80%;
+        height: 65vh;
+    }
+
+    .box form{
+        position: absolute;
+        inset: 4px;
+        background: var(--setBg);
+        /* padding: 40px 20px; */
+        border-radius: 10px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+    }
+    
+  }
